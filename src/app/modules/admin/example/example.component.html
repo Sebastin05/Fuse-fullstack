@@ -1,0 +1,216 @@
+<div class="flex flex-col flex-auto min-w-0">
+
+    <!-- Main -->
+    <div class="flex-auto p-6 sm:p-10">
+
+        <!-- CONTENT GOES HERE -->
+        <div class="h-300 min-h-300 max-h-300 border-2 border-dashed border-gray-300 rounded-2xl py-4 bg-white">
+            <mat-tab-group>
+                <mat-tab label="Todos">
+                    <div class="mx-6">
+                        <fuse-card class="flex flex-col px-8 py-6 pb-4 bg-slate-100 rounded-md shadow-none"
+                            #fuseCard>
+                            <div class="grid grid-cols-4 gap-4 pb-4 items-center">
+                                <div class="mb-3 w-full">
+                                    <label for="exampleFormControlInput1" class="form-label inline-block mb-2 text-gray-700" >Child</label >
+                                    <select class="border rounded  w-full border-gray-300 text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
+                                        <option selected disabled hidden>Select payee</option>
+                                        <option *ngFor="let item of payeeData" value="item.value">{{item.label}}</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3 w-full">
+                                    <label for="exampleFormControlInput1" class="form-label inline-block mb-2 text-gray-700" >Payee</label >
+                                    <select class="border rounded w-full border-gray-300 text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
+                                        <option selected disabled hidden>Select chlid</option>
+                                        <option *ngFor="let item of childData" value="item.value">{{item.label}}</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <section class="example-section">
+                                        <mat-checkbox class="example-margin pt-4">Include those parents who are in credit</mat-checkbox>
+                                    </section>
+                                </div>
+                                <div>
+                                    <div class="flex">
+                                        <button mat-flat-button="" class="mat-focus-indicator mt-4 mat-flat-button button-search mat-button-base mat-primary"><span class="ml-2 mr-1">Search</span></button>
+                                        <button class="mx-2 mt-4 refresh-button place-self-center flex justify-center">
+                                            <mat-icon>cached</mat-icon>
+                                        </button>
+                                        <div class="mx-2 mt-4 flex items-center">
+                                            <button class="px-3 bg-slate-200 flex items-center rounded-full justify-center self-center down-arrow-button" mat-button         
+                                                (click)="fuseCard.expanded = !fuseCard.expanded">
+                                                <mat-icon
+                                                    class="icon-size-5"
+                                                    *ngIf="!fuseCard.expanded"
+                                                    [svgIcon]="'heroicons_solid:chevron-down'"></mat-icon>
+                                                <mat-icon
+                                                    class="icon-size-5"
+                                                    *ngIf="fuseCard.expanded"
+                                                    [svgIcon]="'heroicons_solid:chevron-up'"></mat-icon>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                            <!-- Expansion -->
+                            <ng-container fuseCardExpansion>
+                                <div class="my-2">
+                                    <div class="grid grid-cols-4 gap-4 pb-4 items-center">
+                                        <div class="mb-3 w-full">
+                                            <label for="exampleFormControlInput1" class="form-label inline-block mb-2 text-gray-700" >Child</label >
+                                            <select class="border rounded  w-full border-gray-300 text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
+                                                <option selected disabled hidden>Select payee</option>
+                                                <option *ngFor="let item of payeeData" value="item.value">{{item.label}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3 w-full">
+                                            <label for="exampleFormControlInput1" class="form-label inline-block mb-2 text-gray-700" >Payee</label >
+                                            <select class="border rounded w-full border-gray-300 text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
+                                                <option selected disabled hidden>Select chlid</option>
+                                                <option *ngFor="let item of childData" value="item.value">{{item.label}}</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <section class="example-section">
+                                                <mat-checkbox class="example-margin pt-4">Include $0 accounts</mat-checkbox>
+                                            </section>
+                                        </div>
+                                        <div class="flex">
+                                            <section class="example-section">
+                                                <mat-checkbox class="example-margin pt-4">Winz records</mat-checkbox>
+                                            </section>
+                                            <section class="example-section ml-2">
+                                                <mat-checkbox class="example-margin pt-4">Weekly</mat-checkbox>
+                                            </section>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </fuse-card>
+                    </div>
+
+                    <div class="grid-rows-1 py-4 mx-6">
+                        <div class="flex">                        
+                            <div class="flex-1 w-64 flex">
+                                <section class="example-section flex inline-block align-middle place-self-center">
+                                    <mat-checkbox class="example-margin check-dropdown"></mat-checkbox>
+                                    <mat-icon svgIcon="mat_outline:keyboard_arrow_down"></mat-icon>
+                                </section>
+                                <button class="flex inline-block align-middle email-button mx-2"><mat-icon svgIcon="heroicons_solid:mail"></mat-icon><span>Email</span></button>
+                                <button class="flex inline-block align-middle email-button mx-2"><mat-icon svgIcon="heroicons_solid:printer"></mat-icon><span>Print</span></button>
+                                <button class="flex inline-block align-middle email-button mx-2"><mat-icon svgIcon="heroicons_solid:clipboard-list"></mat-icon><span>PDF</span></button>                                
+                            </div>
+                            <div class="flex-1 w-32 grid justify-items-end">
+                                <button class="flex inline-block bg-slate-200 align-middle email-button mx-2" [routerLink]="['/example/add-example']"><mat-icon svgIcon="heroicons_solid:plus"></mat-icon><span>ADD</span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid">                          
+                        <div class="h-full overflow-auto mat-elevation-z8 shadow-white-table">
+                        <table mat-table [dataSource]="UserData" class="w-full" matSort> 
+                            <!-- Payee -->
+                            <ng-container matColumnDef="payee">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Payee<mat-icon class="text-black">swap_vert</mat-icon></th>
+                            <td mat-cell *matCellDef="let row"> 
+                                <ng-container><a href="javascript:void(0);" class="text-blue-600">{{row.payee}}</a></ng-container>
+                             </td>
+                             <td mat-footer-cell *matFooterCellDef>Total</td>
+                            </ng-container>
+                        
+                            <!-- Child -->
+                            <ng-container matColumnDef="child">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Child<mat-icon class="text-black">swap_vert</mat-icon></th>
+                            <td mat-cell *matCellDef="let row"> 
+                                <ng-container><a href="javascript:void(0);" class="text-blue-600">{{row.child}}</a></ng-container>
+                            </td>
+                            <td mat-footer-cell *matFooterCellDef></td>
+                            </ng-container>
+                        
+                            <!-- 3 Weeks -->
+                            <ng-container matColumnDef="threeweeks">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>3Weeks<mat-icon class="text-black">swap_vert</mat-icon></th>
+                            <td mat-cell *matCellDef="let row"> ${{row.threeweeks}} </td>
+                            <td mat-footer-cell *matFooterCellDef>$4098.25</td>
+                            </ng-container>
+                        
+                            <!-- 2 Weeks -->
+                            <ng-container matColumnDef="twoweeks">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>2Weeks<mat-icon class="text-black">swap_vert</mat-icon></th>
+                            <td mat-cell *matCellDef="let row"> ${{row.twoweeks}} </td>
+                            <td mat-footer-cell *matFooterCellDef>$4098.25</td>
+                            </ng-container>
+
+                            <!-- 1 Weeks -->
+                            <ng-container matColumnDef="oneweeks">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>1Weeks<mat-icon class="text-black">swap_vert</mat-icon></th>
+                                <td mat-cell *matCellDef="let row"> ${{row.oneweeks}} </td>
+                                <td mat-footer-cell *matFooterCellDef>$4098.25</td>
+                            </ng-container>
+
+                            <!-- Current -->
+                            <ng-container matColumnDef="current">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>Current<mat-icon class="text-black">swap_vert</mat-icon></th>
+                                <td mat-cell *matCellDef="let row"> ${{row.current}} </td>
+                                <td mat-footer-cell *matFooterCellDef>$4098.25</td>
+                            </ng-container>
+
+                            <!-- Pending Amount -->
+                            <ng-container matColumnDef="pendingAmount">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>Pending Amount<mat-icon class="text-black">swap_vert</mat-icon></th>
+                                <td mat-cell *matCellDef="let row"> ${{row.pendingAmount}} </td>
+                                <td mat-footer-cell *matFooterCellDef>$4098.25</td>
+                            </ng-container>
+
+                            <!-- Over Payment -->
+                            <ng-container matColumnDef="overPayment">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>Over Payment<mat-icon class="text-black">swap_vert</mat-icon></th>
+                                <td mat-cell *matCellDef="let row"> ${{row.overPayment}} </td>
+                                <td mat-footer-cell *matFooterCellDef>$5361.84</td>
+                            </ng-container>
+
+                            <!-- Pending Creditnotes -->
+                            <ng-container matColumnDef="pendingcredit">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>Pending Creditnotes<mat-icon class="text-black">swap_vert</mat-icon></th>
+                                <td mat-cell *matCellDef="let row"> ${{row.pendingcredit}} </td>
+                                <td mat-footer-cell *matFooterCellDef>$5361.84</td>
+                            </ng-container>
+
+                            <!-- Total Pending Amount -->
+                            <ng-container matColumnDef="totalAmount">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>Total Pending Amount<mat-icon class="text-black">swap_vert</mat-icon></th>
+                                <td mat-cell *matCellDef="let row"> ${{row.totalAmount}} </td>
+                                <td mat-footer-cell *matFooterCellDef>$5361.84</td>
+                            </ng-container>
+
+                            <!-- Action -->
+                            <ng-container matColumnDef="action">
+                                <th mat-header-cell *matHeaderCellDef>Action</th>
+                                <td mat-cell *matCellDef="let row"> 
+                                    <ng-container>
+                                        <a href="javascript:void(0);"><mat-icon svgIcon="heroicons_solid:pencil-alt"></mat-icon></a>
+                                        <a href="javascript:void(0);"><mat-icon svgIcon="heroicons_solid:trash"></mat-icon></a>
+                                    </ng-container> 
+                                </td>
+                                <td mat-footer-cell *matFooterCellDef></td>
+                            </ng-container>
+                        
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                            <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true"></tr>
+                        
+                        </table>
+                        
+                        <mat-paginator [pageSizeOptions]="[10, 20, 50, 80, 100]" aria-label="Select page of users"></mat-paginator>
+                        
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Demo">
+                    <div class="px-6">demo</div>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+
+    </div>
+
+</div>

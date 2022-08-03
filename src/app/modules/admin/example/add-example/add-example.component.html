@@ -1,0 +1,90 @@
+<div class="flex flex-col flex-auto min-w-0">
+    <!-- Main -->
+    <div class="flex-auto p-6 sm:p-10">
+        <!-- CONTENT GOES HERE -->
+        <div class="h-300 min-h-300 max-h-300 border-2 border-dashed border-gray-300 rounded-2xl py-4 bg-white">
+            <div class="grid py-4 mx-6">
+                <form [formGroup]="registerForm">
+                    <h5 class="pb-6 text-2xl font-bold">ADD</h5>
+                    <div class="w-8/12 mx-auto">
+                        <div class="mb-3 w-full">
+                            <label for="exampleFormControlInput1" class="form-label inline-block mb-2 text-gray-700" >Payee</label >
+                            <input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none " id="" placeholder="Payee" formControlName="payee" />
+                            <div *ngIf="submitted && f.payee.errors" class="invalid-feedback">
+                                <div *ngIf="f.payee.errors.required" class="text-red-500 text-sm">Payee is Mandatory</div>
+                            </div>
+                        </div>
+                        <div class="mb-3 w-full">
+                            <label for="exampleFormControlInput1" class="form-label inline-block mb-2 text-gray-700" >Child</label >
+                            <input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none " id="" placeholder="child" formControlName="child" />
+                            <div *ngIf="submitted && f.child.errors" class="invalid-feedback">
+                                <div *ngIf="f.child.errors.required" class="text-red-500 text-sm">Child is Mandatory</div>
+                            </div>
+                        </div>
+                        <div class="mb-3 w-full">
+                            <label for="exampleFormControlInput1" class="form-label inline-block mb-2 text-gray-700" >3 Weeks</label >
+                            <input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none " id="" placeholder="3 Weeks" formControlName="threeweek" />
+                            <div *ngIf="submitted && f.threeweek.errors" class="invalid-feedback">
+                                <div *ngIf="f.threeweek.errors.required" class="text-red-500 text-sm">3 Weeks is Mandatory</div>
+                            </div>
+                        </div>
+                        <div class="mb-3 w-full">
+                            <label for="exampleFormControlInput1" class="form-label inline-block mb-2 text-gray-700" >2 Weeks</label >
+                            <input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none " id="" placeholder="2 Weeks" formControlName="twoweek" />
+                            <div *ngIf="submitted && f.twoweek.errors" class="invalid-feedback">
+                                <div *ngIf="f.twoweek.errors.required" class="text-red-500 text-sm">2 Weeks is Mandatory</div>
+                            </div>
+                        </div>
+                        <div class="mb-3 w-full">
+                            <label for="exampleFormControlInput1" class="form-label inline-block mb-2 text-gray-700" >1 Weeks</label >
+                            <input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none " id="" placeholder="1 Weeks" formControlName="oneweek" />
+                            <div *ngIf="submitted && f.oneweek.errors" class="invalid-feedback">
+                                <div *ngIf="f.oneweek.errors.required" class="text-red-500 text-sm">1 Weeks is Mandatory</div>
+                            </div>
+                        </div>
+                        <div class="mb-3 w-full">
+                            <label for="exampleFormControlInput1" class="form-label inline-block mb-2 text-gray-700" >Current</label >
+                            <input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none " id="" placeholder="Current" formControlName="current" />
+                            <div *ngIf="submitted && f.current.errors" class="invalid-feedback">
+                                <div *ngIf="f.current.errors.required" class="text-red-500 text-sm">Current is Mandatory</div>
+                            </div>
+                        </div>
+                        <div class="mb-3 w-full">
+                            <label for="exampleFormControlInput1" class="form-label inline-block mb-2 text-gray-700" >Pending Amount</label >
+                            <input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none " id="" placeholder="Pending Amount" formControlName="pending_amount" />
+                            <div *ngIf="submitted && f.pending_amount.errors" class="invalid-feedback">
+                                <div *ngIf="f.pending_amount.errors.required" class="text-red-500 text-sm">Pending Amount is Mandatory</div>
+                            </div>
+                        </div>
+                        <div class="mb-3 w-full">
+                            <label for="exampleFormControlInput1" class="form-label inline-block mb-2 text-gray-700" >Over Payment</label >
+                            <input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none " id="" placeholder="Over Payment" formControlName="over_payment" />
+                            <div *ngIf="submitted && f.over_payment.errors" class="invalid-feedback">
+                                <div *ngIf="f.over_payment.errors.required" class="text-red-500 text-sm">Over Payment is Mandatory</div>
+                            </div>
+                        </div>
+                        <div class="mb-3 w-full">
+                            <label for="exampleFormControlInput1" class="form-label inline-block mb-2 text-gray-700" >Pending Creditnote</label >
+                            <input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none " id="" placeholder="Pending Creditnote" formControlName="pending_credit" />
+                            <div *ngIf="submitted && f.pending_credit.errors" class="invalid-feedback">
+                                <div *ngIf="f.pending_credit.errors.required" class="text-red-500 text-sm">Pending Creditnote is Mandatory</div>
+                            </div>
+                        </div>
+                        <div class="mb-3 w-full">
+                            <label for="exampleFormControlInput1" class="form-label inline-block mb-2 text-gray-700" >Total Pending Amount</label >
+                            <input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none " id="" placeholder="Total Pending Amount" formControlName="total_amount" />
+                            <div *ngIf="submitted && f.total_amount.errors" class="invalid-feedback">
+                                <div *ngIf="f.total_amount.errors.required" class="text-red-500 text-sm">Total Pending Amount is Mandatory</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-center">
+                        <button type="button" class="px-6 py-2.5 mx-2 bg-slate-400 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-slate-500 hover:shadow-lg focus:bg-slate-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-slate-600 active:shadow-lg transition duration-150 ase-in-out" [routerLink]="['/example']">Cancel</button>
+                        <button type="button" (click)="onSubmit()" class="px-6 py-2.5 mx-2 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ase-in-out">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
